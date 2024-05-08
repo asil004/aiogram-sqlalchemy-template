@@ -7,7 +7,7 @@ from sqlalchemy import pool
 from sqlalchemy.engine import Connection
 from sqlalchemy.ext.asyncio import async_engine_from_config
 
-from bot.config_reader import config as bot_config
+# from bot.config_reader import config as bot_config
 from bot.db import Base
 
 # this is the Alembic Config object, which provides
@@ -26,7 +26,7 @@ if config.config_file_name is not None:
 target_metadata = Base.metadata
 config.set_main_option(
     'sqlalchemy.url',
-    bot_config.db_url
+    "postgresql+psycopg://postgres:12345@localhost/worker_monitoring_bot"
 )
 
 # other values from the config, defined by the needs of env.py,

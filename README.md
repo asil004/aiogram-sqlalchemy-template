@@ -1,10 +1,6 @@
-# aiogram-and-sqlalchemy-demo
-<a href="https://hub.docker.com/r/groosha/aiogram-and-sqlalchemy-demo"><img src="https://img.shields.io/badge/Docker%20Hub-aiogram--and--sqlalchemy--demo-blue"></a>   
+# aiogram-and-sqlalchemy-template
 
-A simple demo of using aiogram 3.x + async sqlalchemy 2.0+, made as a pop-it game where you need to click 
-green circles and avoid red ones.
-
-![screenshot](images/screenshot.png)
+A simple bot template of using aiogram 3.x + async sqlalchemy 2.0+.
 
 Used tech:
 * [aiogram 3.x](https://github.com/aiogram/aiogram)
@@ -13,7 +9,131 @@ Used tech:
 * psycopg3 as database driver for SQLAlchemy
 * Docker with docker-compose for deployment
 
-Don't forget to create "postgres_data" (required) and "pgadmin_data" (if using PG Admin) directories 
-before you run `docker-compose up -d`
+## Quick Start Guide
 
-Also copy `env_dist` file to `.env` and fill it with your data
+### Setting Up Locally
+
+#### 1. Repository Initialization
+   - **Clone the Repository**
+
+#### 2. Environment Setup
+   - **Create a Virtual Environment**:
+     ```bash
+     python3.11 -m venv .venv
+     ```
+   - **Activate the Virtual Environment**:
+     ```bash
+     source .venv/bin/activate
+     ```
+
+#### 3. Configuration
+   - **Environment Variables**:
+     - Copy the example environment file:
+       ```bash
+       cp .env.example .env
+       ```
+     - _Note: The API can operate without this step, but configuring the environment variables is recommended for full functionality._
+
+#### 4. Dependency Management
+   - **Install Dependencies**:
+     ```bash
+     pip install -r requirements.txt
+     ```
+
+#### 5. Database Setup
+   - **Run Migrations**:
+     ```bash
+     make migrate
+     ```
+
+#### 6. Launching the bot
+   - **Start the bot**:
+     ```bash
+     make run.bot
+     ```
+
+
+##
+### Setting Up with Docker
+
+#### 1. Repository Initialization
+   - **Clone the Repository**
+
+#### 2. Configuration
+   - Follow the steps in the top 👆 to set up the `.env` file.
+
+#### 3. Docker Compose
+   - **Run Docker Compose**:
+     ```bash
+     docker compose up -d
+     ```
+### --------------------------------------------------------------------------------------
+# aiogram-va-sqlalchemy-telegram bot-shabloni
+
+aiogram 3.x + async sqlalchemy 2.0+ bot shabloni.
+
+Foydalanilgan texnologiyalar:
+* [aiogram 3.x](https://github.com/aiogram/aiogram)
+* [SQLAlchemy 2.0+](https://www.sqlalchemy.org/)
+* Ma'lumotlar ombori sifatida PostgreSQL
+* SQLAlchemy uchun ma'lumotlar bilan ishlash psycopg3
+* Deploy qilish uchun Docker va docker-compose
+
+## Tezkor Boshlash Qo'llanma
+
+### O'rnatish
+
+#### 1. Repositorni ko'chirib oling 
+   - **Repositoriyani klonlang**
+
+#### 2. Muhitni O'rnatish
+   - **Virtual muhit yaratish**:
+     ```bash
+     python3.11 -m venv .venv
+     ```
+   - **Virtual muhitni faollashtirish**:
+     ```bash
+     source .venv/bin/activate
+     ```
+
+#### 3. Sozlash
+   - **Muhit o'zgaruvchilari**:
+     - Misol muhit faylini nusxalash:
+       ```bash
+       cp .env.example .env
+       ```
+     - _Izoh: API bu qadam yo'q, lekin muhit o'zgaruvchilarini sozlash to'liq funksionallik uchun maslahat beriladi._
+
+#### 4. Kutubxonalarni o'rnatib olish
+   - **Kutubxonalarni o'rnatish**:
+     ```bash
+     pip install -r requirements.txt
+     ```
+
+#### 5. Ma'lumotlar omborini sozlash
+   - **Migratsiyalarni ishga tushirish**:
+     ```bash
+     make migrate
+     ```
+
+#### 6. Botni ishga tushirish
+   - **Botga run berish**:
+     ```bash
+     make run.bot
+     ```
+
+
+##
+### Docker bilan O'rnatish
+
+#### 1. Repositorni klonlash
+   - **Repositoriyani klonlang**
+
+#### 2. Sozlash
+   - `.env` faylini sozlash uchun yuqoridagi qadamlarni o'rganib chiqing.
+
+#### 3. Docker Compose
+   - **Docker Compose ni ishga tushiring**:
+     ```bash
+     docker compose up -d
+     ```

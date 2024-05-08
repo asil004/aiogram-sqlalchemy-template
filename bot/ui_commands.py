@@ -8,8 +8,7 @@ async def set_ui_commands(bot: Bot):
     :param bot: Bot instance
     """
     commands = [
-        BotCommand(command="play", description="Start new game"),
-        BotCommand(command="top", description="View top players")
+        BotCommand(command="start", description="Botni ishga tushirish ♻️"),
     ]
     await bot.set_my_commands(
         commands=commands,
