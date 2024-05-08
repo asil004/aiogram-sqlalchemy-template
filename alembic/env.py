@@ -7,7 +7,7 @@ from sqlalchemy import pool
 from sqlalchemy.engine import Connection
 from sqlalchemy.ext.asyncio import async_engine_from_config
 
-# from bot.config_reader import config as bot_config
+from bot.config_reader import config as bot_config
 from bot.db import Base
 
 # this is the Alembic Config object, which provides
@@ -26,8 +26,9 @@ if config.config_file_name is not None:
 target_metadata = Base.metadata
 config.set_main_option(
     'sqlalchemy.url',
-    "postgresql+psycopg://postgres:12345@localhost/worker_monitoring_bot"
+    bot_config.DB_URL
 )
+
 
 # other values from the config, defined by the needs of env.py,
 # can be acquired:
@@ -61,7 +62,8 @@ def run_migrations_offline() -> None:
 
 
 def do_run_migrations(connection: Connection) -> None:
-    context.configure(connection=connection, target_metadata=target_metadata, process_revision_directives=process_revision_directives,)
+    context.configure(connection=connection, target_metadata=target_metadata,
+                      process_revision_directives=process_revision_directives, )
 
     with context.begin_transaction():
         context.run_migrations()
