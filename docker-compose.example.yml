@@ -1,7 +1,6 @@
-version: '3.8'
 services:
   bot:
-    image: groosha/aiogram-and-sqlalchemy-demo:latest
+    build: .
     restart: always
     stop_signal: SIGINT
     environment:
@@ -12,6 +11,7 @@ services:
       - DB_NAME
     depends_on:
       - db
+
   db:
     image: postgres:12-alpine
     restart: always
@@ -20,7 +20,4 @@ services:
       POSTGRES_PASSWORD: ${DB_PASS}
       POSTGRES_DB: ${DB_NAME}
     volumes:
-      - "/path/to/your/postgres/directory:/var/lib/postgresql/data"
-
-
-
+      - "/var/lib/postgresql/data"

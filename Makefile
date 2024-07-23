@@ -1,6 +1,9 @@
 run.bot:
 	python -m bot
 
-migrate:
+makemigrations:
 	alembic revision --autogenerate -m "makemigrations"
+
+migrate:
 	alembic upgrade head
+
